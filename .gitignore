@@ -1,3 +1,6 @@
+#Ignore .env
+.env
+
 # Ignore virtual environments
 venv/
 backend/venv/
