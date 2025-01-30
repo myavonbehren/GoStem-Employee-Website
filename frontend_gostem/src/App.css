@@ -1,38 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 .App {
   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 45vmin;
   pointer-events: none;
+  animation: dropDown 1s ease-out;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Landing-page {
+  background-color: #afdcd5;
+  min-height: 100%;
+  min-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  height: 100vh;
+  margin: 0;
+  padding-bottom:5vh;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.Login-button{ 
+  background-color: #133d3b ;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: monospace;
+  color:  #f3eddf;
+  padding: 20px;
+  margin-left: 10px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  width:25%;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.4);
+  font-family: 'Montserrat', sans-serif;
+}
+.Login-button:hover{ 
+  background-color: lightcoral;
+  box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.6);
 }
 
-@keyframes App-logo-spin {
+@keyframes dropDown {
   from {
-    transform: rotate(0deg);
+    transform: translateY(-100px);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(0);
+    opacity: 1;
   }
 }
+
+
+
