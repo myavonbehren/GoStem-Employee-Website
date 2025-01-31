@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import now
 
 # Create your models here.
 class User(models.Model):
@@ -22,7 +23,7 @@ class Tutor(models.Model):
 
 class Admin(models.Model): 
     # referecing the user, the admin is a set of users
-    tutor       = models.ForeignKey(User, on_delete=models.CASCADE)
+    admin       = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # readable
     def __str__(self):
@@ -46,8 +47,27 @@ class Assignees(models.Model):
     # readable
     def __str__(self):
         return (self.event, self.assignee)
+    
+class Message(models.Model):
+    message_id = models.AutoField(primary_key = True) #Auto Incrementing Message ID
+    content = models.TextField() #Message Content
+    timestamp = models.DateTimeField(default = now) #Timestamp of Message
+    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name ='sent_messages') # Sender reference
+    receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='received_messages') # Receiver reference
 
+    def __str__(self):
+        return (self.message_id, self.content, self.timestamp, self.sender, self.receiver)
 
-
-
+class Note(models.Model):
+    noteId = models.AutoField(primary_key = True) #Auto Incrementing Note ID
+    contentType = models.CharField(max_length = 50)
+    content = models.TextField() #Text or a file path
+    authorId = models.ForeignKey(User, on_delete=models.CASCADE) #Links to User Model
+    authorName = models.CharField(max_length = 100) #Write in Author name
+    event = models.CharField(max_length = 100) #Write in Event
+    courseName = models.CharField(max_length = 100) #Write in Course Name
+    date = models.DateTimeField(default = now) #TimeStamp of Note Creation
+    
+    def __str__(self):
+        return (self.noteId, self.contentType, self.content, self.authorId, self.authorId, self.authorName, self.event, self.courseName, self.date)
     
