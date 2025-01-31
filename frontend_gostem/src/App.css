@@ -38,13 +38,14 @@
   cursor: pointer;
   border: none;
   width:25%;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.4);
   font-family: 'Montserrat', sans-serif;
 }
 .Login-button:hover{ 
-  background-color: lightcoral;
+  background-color: #216661;
   box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.6);
+  transform: scale(1.05);
 }
 
 @keyframes dropDown {
