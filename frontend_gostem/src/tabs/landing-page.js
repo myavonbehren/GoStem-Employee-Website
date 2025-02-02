@@ -1,4 +1,13 @@
 import './styles/landing-page.css';
+import clock from'./components/icons/clock.png'
+import chat from'./components/icons/chat.png'
+import gear from'./components/icons/gear.png'
+import home from'./components/icons/home.png'
+import logout from'./components/icons/logout.png'
+import notes from'./components/icons/notes.png'
+import schedule from'./components/icons/schedule.png'
+import user from'./components/icons/user.png'
+
 import React from "react";
 
 const LandingPage = () => {
@@ -10,22 +19,34 @@ const LandingPage = () => {
       
       <div className="button-grid">
         <button className="image-button">
-          <img src="/path-to-image-1.jpg" alt="Home" />
+          <img src={home} alt="Home"/>
+          <br></br>
+          <span className="button-text">Home</span>
         </button>
         <button className="image-button">
-          <img src="/path-to-image-2.jpg" alt="Notes" />
+          <img src={notes} alt="Notes"/>
+          <br></br>
+          <span className="button-text">Notes</span>
         </button>
         <button className="image-button">
-          <img src="/path-to-image-3.jpg" alt="Schedule" />
+          <img src={schedule} alt="Schedule"/>
+          <br></br>
+          <span className="button-text">Schedule</span>
         </button>
         <button className="image-button">
-          <img src="/path-to-image-4.jpg" alt="Hours" />
+          <img src={clock} alt="Hours"/>
+          <br></br>
+          <span className="button-text">Hours</span>
         </button>
         <button className="image-button">
-          <img src="/path-to-image-5.jpg" alt="Chats" />
+          <img src={chat} alt="Chats"/>
+          <br></br>
+          <span className="button-text">Chats</span>
         </button>
         <button className="image-button">
-          <img src="/path-to-image-6.jpg" alt="Profile" />
+          <img src={user} alt="Profile"/>
+          <br></br>
+          <span className="button-text">Profile</span>
         </button>
       </div>
       

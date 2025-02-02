@@ -60,10 +60,16 @@
 }
 
 .image-button img {
-  width: 100%;
-  height: 100%;
+  position: center;
+  width: 50%;
+  height: 60%;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
+}
+.button-text{
+  margin-top: 5px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .image-button:hover img {
@@ -86,6 +92,7 @@
   transition: background-color 0.3s ease-in-out, transform 0.3s ease;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.4);
   font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
 .bottom-button:hover {
