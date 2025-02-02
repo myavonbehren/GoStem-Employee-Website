@@ -51,7 +51,7 @@
   text-align: center;
   cursor: pointer;
   border: none;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.4);
   font-family: 'Montserrat', sans-serif;
   width: 250px;
@@ -83,13 +83,18 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.4);
   font-family: 'Montserrat', sans-serif;
 }
 
 .bottom-button:hover {
-  background-color: lightcoral;
+  background-color: #216661;
+  box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.6);
+  transform: scale(1.05);
 }
 .image-button:hover {
-  background-color: lightcoral;
+  background-color: #216661;
+  box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.6);
+  transform: scale(1.05);
 }
