@@ -15,6 +15,7 @@ import ProfilePage from "./profile-page";
 import SchedulePage from "./schedule-page";
 
 import React from "react";
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const LandingPage = () => {
   return (
@@ -24,41 +25,57 @@ const LandingPage = () => {
       </header>
       
       <div className="button-grid">
+        <Link to=""> 
         <button className="image-button">
           <img src={home} alt="Home"/>
           <br></br>
           <span className="button-text">Home</span>
         </button>
+        </Link>
+        <Link to="./note-page"> 
         <button className="image-button">
           <img src={notes} alt="Notes"/>
           <br></br>
           <span className="button-text">Notes</span>
         </button>
+        </Link>
+        <Link to="./schedule-page"> 
         <button className="image-button">
           <img src={schedule} alt="Schedule"/>
           <br></br>
           <span className="button-text">Schedule</span>
         </button>
+        </Link>
+        <Link to="./hours-page"> 
         <button className="image-button">
           <img src={clock} alt="Hours"/>
           <br></br>
           <span className="button-text">Hours</span>
         </button>
+        </Link>
+        <Link to="./chats-page"> 
         <button className="image-button">
           <img src={chat} alt="Chats"/>
           <br></br>
           <span className="button-text">Chats</span>
         </button>
+        </Link>
+        <Link to="./profile-page"> 
         <button className="image-button">
           <img src={user} alt="Profile"/>
           <br></br>
           <span className="button-text">Profile</span>
         </button>
+        </Link>
       </div>
       
       <div className="bottom-buttons">
-        <button className="bottom-button">Settings</button>
-        <button className="bottom-button">Log Out</button>
+        <Link to=""> 
+          <button className="bottom-button">Settings</button>
+        </Link>
+        <Link to="./"> 
+          <button className="bottom-button">Log Out</button>
+        </Link>
       </div>
     </div>
   );
