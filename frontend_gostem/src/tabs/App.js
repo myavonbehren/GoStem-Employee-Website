@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import goStemLogo from './components/GoStemLogo.png';
 import './styles/App.css';
 import LandingPage from "./landing-page";
+import NotePage from "./note-page";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/landing-page" component={LandingPage} />
+        <Route path="/note-page" component={NotePage} />
       </Switch>
     </Router>
   );
