@@ -8,6 +8,12 @@ import notes from'./components/icons/notes.png'
 import schedule from'./components/icons/schedule.png'
 import user from'./components/icons/user.png'
 
+import NotePage from "./note-page";
+import ChatPage from "./chats-page";
+import HoursPage from "./hours-page";
+import ProfilePage from "./profile-page";
+import SchedulePage from "./schedule-page";
+
 import React from "react";
 
 const LandingPage = () => {
