@@ -10,3 +10,10 @@ def event_get_detail(request):
 
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
+
+def chat(request):
+    return render(request, "polls/chat.html") # Create a template for the chat page
+
+def chatPage(request, *args, **kwargs):
+    context = {}
+    return render(request, "chat/chatPage.html", context)
