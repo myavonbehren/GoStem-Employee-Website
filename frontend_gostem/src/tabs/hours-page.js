@@ -1,17 +1,4 @@
-// import React from "react";
 import "./styles/hours-page.css"
-
-// const HoursPage = () => {
-//   return (
-//     <div className="body">
-//       <header className="hours-header">
-//         <h1>Timesheet</h1>
-//       </header>
-//       </div>
-//   );
-// };
-
-// export default HoursPage;
 import React, { useState } from 'react';
 
 const TimeCard = () => {
@@ -27,7 +14,6 @@ const TimeCard = () => {
         const newEntry = { campus, tutorName, date, startTime, endTime, comments };
         setEntries([...entries, newEntry]);
 
-        // Clear the input fields after adding the entry
         setCampus("");
         setTutorName("");
         setDate("");
