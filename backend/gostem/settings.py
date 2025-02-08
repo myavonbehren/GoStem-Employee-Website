@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'rest_framework',
     'channels',
+    'notes',
 ]
 
 MIDDLEWARE = [
