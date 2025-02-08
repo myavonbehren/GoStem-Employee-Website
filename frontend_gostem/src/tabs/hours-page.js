@@ -23,6 +23,7 @@ const TimeCard = () => {
     };
 
     return (
+      <div className="body">
         <div className="container">
             <div className="header">
                 <h2>Time Card: Tutor Hours</h2>
@@ -126,6 +127,7 @@ const TimeCard = () => {
                 </ul>
             </div>
         </div>
+      </div>
     );
 };
 
