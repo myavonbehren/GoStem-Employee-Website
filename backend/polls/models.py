@@ -5,13 +5,16 @@ from django.utils.timezone import now
 class User(models.Model):
     first_name  = models.CharField(max_length = 30)
     last_name   = models.CharField(max_length = 30)
-    pronouns    = models.CharField(max_length = 10)
+    #pronouns    = models.CharField(max_length = 10)
     role        = models.CharField(max_length = 30)
-    prof_desc   = models.CharField(max_length = 250)
+    #prof_desc   = models.CharField(max_length = 250)
     email       = models.EmailField(max_length = 254)
 
+    #def __str__(self):
+        #return (f"self.first_name, self.last_name, self.pronouns, self.role, self.prof_desc, self.email")
+    
     def __str__(self):
-        return (f"self.first_name, self.last_name, self.pronouns, self.role, self.prof_desc, self.email")
+        return (f"self.first_name, self.last_name, self.role, self.email")
 
 class Tutor(models.Model):
     # referecing the user, the tutor is a set of users
