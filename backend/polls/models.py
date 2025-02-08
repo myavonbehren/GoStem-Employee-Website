@@ -1,8 +1,14 @@
 from django.db import models
 from django.utils.timezone import now
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import check_password
+
+
+
 
 # Create your models here.
 class User(models.Model):
+    user_id     = models.AutoField(primary_key=True)
     first_name  = models.CharField(max_length = 30)
     last_name   = models.CharField(max_length = 30)
     #pronouns    = models.CharField(max_length = 10)
@@ -18,21 +24,22 @@ class User(models.Model):
 
 class Tutor(models.Model):
     # referecing the user, the tutor is a set of users
-    tutor       = models.ForeignKey(User, on_delete=models.CASCADE)
+    tutorId     = models.OneToOneField(User, on_delete=models.CASCADE)
 
     # readable
     def __str__(self):
         return str((self.tutor))
 
-class Admin(models.Model): 
+class Admin(models.Model): # simple db query if admin this or that
     # referecing the user, the admin is a set of users
-    admin       = models.ForeignKey(User, on_delete=models.CASCADE)
+    adminId     = models.OneToOneField(User, on_delete=models.CASCADE)
 
     # readable
     def __str__(self):
         return str((self.admin))
 
 class Event(models.Model):
+    event_id    = models.AutoField(primary_key=True)
     date        = models.DateField()
     location    = models.CharField(max_length=100)
 
@@ -42,10 +49,10 @@ class Event(models.Model):
     
 class Assignees(models.Model):
     # referencing the event, this is so that the event will have a query set of assigned people to that event
-    event       = models.ForeignKey(Event, on_delete=models.CASCADE) 
+    eventId     = models.ForeignKey(Event, on_delete=models.CASCADE) 
 
     # referencing a user, this is so that the assignee will be a reference to an actual user in the app
-    assignee    = models.ForeignKey(User, on_delete=models.CASCADE)
+    assigneeId  = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # readable
     def __str__(self):
