@@ -11,7 +11,7 @@ class User(models.Model):
     email       = models.EmailField(max_length = 254)
 
     def __str__(self):
-        return (self.first_name, self.last_name, self.pronouns, self.role, self.prof_desc, self.email)
+        return (f"self.first_name, self.last_name, self.pronouns, self.role, self.prof_desc, self.email")
 
 class Tutor(models.Model):
     # referecing the user, the tutor is a set of users
@@ -19,7 +19,7 @@ class Tutor(models.Model):
 
     # readable
     def __str__(self):
-        return (self.tutor)
+        return str((self.tutor))
 
 class Admin(models.Model): 
     # referecing the user, the admin is a set of users
@@ -27,7 +27,7 @@ class Admin(models.Model):
 
     # readable
     def __str__(self):
-        return (self.admin)
+        return str((self.admin))
 
 class Event(models.Model):
     date        = models.DateField()
@@ -35,7 +35,7 @@ class Event(models.Model):
 
     # readable
     def __str__(self):
-        return (self.date, self.location)
+        return (f"self.date, self.location")
     
 class Assignees(models.Model):
     # referencing the event, this is so that the event will have a query set of assigned people to that event
@@ -46,7 +46,7 @@ class Assignees(models.Model):
 
     # readable
     def __str__(self):
-        return (self.event, self.assignee)
+        return (f"self.event, self.assignee")
     
 class Message(models.Model):
     message_id = models.AutoField(primary_key = True) #Auto Incrementing Message ID
@@ -56,7 +56,7 @@ class Message(models.Model):
     receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='received_messages') # Receiver reference
 
     def __str__(self):
-        return (self.message_id, self.content, self.timestamp, self.sender, self.receiver)
+        return (f"self.message_id, self.content, self.timestamp, self.sender, self.receiver")
 
 class Note(models.Model):
     noteId = models.AutoField(primary_key = True) #Auto Incrementing Note ID
@@ -69,5 +69,5 @@ class Note(models.Model):
     date = models.DateTimeField(default = now) #TimeStamp of Note Creation
     
     def __str__(self):
-        return (self.noteId, self.contentType, self.content, self.authorId, self.authorId, self.authorName, self.event, self.courseName, self.date)
+        return (f"self.noteId, self.contentType, self.content, self.authorId, self.authorId, self.authorName, self.event, self.courseName, self.date")
     
