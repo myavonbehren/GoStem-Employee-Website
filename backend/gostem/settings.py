@@ -37,10 +37,15 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    'daphne',
+    #'daphne',
     "django.contrib.staticfiles",
     'rest_framework',
+
     'polls'
+
+    #'channels',
+    'notes',
+
 ]
 
 MIDDLEWARE = [
@@ -83,23 +88,23 @@ CHANNEL_LAYERS = {
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gostem_db',  # Your PostgreSQL database name
-        'USER': 'gostem_user',  # Your PostgreSQL username
-        'PASSWORD': 'gostem',  # Your PostgreSQL password
-        'HOST': 'localhost',  # Change to your DB server if remote
-        'PORT': '5432',  # Default PostgreSQL port
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'gostem_db',  # Your PostgreSQL database name
+#         'USER': 'gostem_user',  # Your PostgreSQL username
+#         'PASSWORD': 'gostem',  # Your PostgreSQL password
+#         'HOST': 'localhost',  # Change to your DB server if remote
+#         'PORT': '5432',  # Default PostgreSQL port
+#     }
+# }
 
 
 

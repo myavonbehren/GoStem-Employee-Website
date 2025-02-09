@@ -11,10 +11,20 @@ class User(models.Model):
     user_id     = models.AutoField(primary_key=True)
     first_name  = models.CharField(max_length = 30)
     last_name   = models.CharField(max_length = 30)
+
     #pronouns    = models.CharField(max_length = 10)
     role        = models.CharField(max_length = 30)
     #prof_desc   = models.CharField(max_length = 250)
     email       = models.EmailField(max_length = 254)
+
+    pronouns    = models.CharField(max_length = 10)
+    role        = models.CharField(max_length = 30) # roles: tutor, volunteer, admin (3), therapist 
+    prof_desc   = models.CharField(max_length = 250)
+    email       = models.EmailField(max_length = 254, unique=True)
+    username    = models.CharField(max_length  = 10, unique=True)
+    _h_pswd     = models.CharField(max_length = 50) # hashed password with bcrypt algorithm (specified in settings.py)
+    isAdmin     = models.BooleanField(default=False)
+
 
     #def __str__(self):
         #return (f"self.first_name, self.last_name, self.pronouns, self.role, self.prof_desc, self.email")
@@ -38,10 +48,16 @@ class Admin(models.Model): # simple db query if admin this or that
     def __str__(self):
         return str((self.admin))
 
+class Program(models.Model):
+    program_id  = models.AutoField(primary_key=True)
+    programName = models.CharField(max_length=150)
+
 class Event(models.Model):
     event_id    = models.AutoField(primary_key=True)
     date        = models.DateField()
     location    = models.CharField(max_length=100)
+    program_id  = models.ForeignKey(Program, on_delete=models.CASCADE)
+    # program name, description, assignees (tutors, etc), 
 
     # readable
     def __str__(self):
@@ -64,9 +80,12 @@ class Message(models.Model):
     timestamp = models.DateTimeField(default = now) #Timestamp of Message
     sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name ='sent_messages') # Sender reference
     receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='received_messages') # Receiver reference
+    # Comments: 
+    """ include """
 
     def __str__(self):
         return (f"self.message_id, self.content, self.timestamp, self.sender, self.receiver")
+
 
 class Note(models.Model):
     noteId = models.AutoField(primary_key = True) #Auto Incrementing Note ID
@@ -81,3 +100,4 @@ class Note(models.Model):
     def __str__(self):
         return (f"self.noteId, self.contentType, self.content, self.authorId, self.authorId, self.authorName, self.event, self.courseName, self.date")
     
+
