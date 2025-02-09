@@ -11,6 +11,12 @@ class User(models.Model):
     user_id     = models.AutoField(primary_key=True)
     first_name  = models.CharField(max_length = 30)
     last_name   = models.CharField(max_length = 30)
+
+    #pronouns    = models.CharField(max_length = 10)
+    role        = models.CharField(max_length = 30)
+    #prof_desc   = models.CharField(max_length = 250)
+    email       = models.EmailField(max_length = 254)
+
     pronouns    = models.CharField(max_length = 10)
     role        = models.CharField(max_length = 30) # roles: tutor, volunteer, admin (3), therapist 
     prof_desc   = models.CharField(max_length = 250)
@@ -19,14 +25,12 @@ class User(models.Model):
     _h_pswd     = models.CharField(max_length = 50) # hashed password with bcrypt algorithm (specified in settings.py)
     isAdmin     = models.BooleanField(default=False)
 
-    def set_password(self, raw_password):
-        self._h_pswd = make_password(raw_password)
-    
-    def check_password(self, raw_password):
-        return check_password(self._h_pswd, raw_password)
 
+    #def __str__(self):
+        #return (f"self.first_name, self.last_name, self.pronouns, self.role, self.prof_desc, self.email")
+    
     def __str__(self):
-        return f"{self.user_id}, {self.first_name}, {self.last_name}, {self.pronouns}, {self.role}, {self.prof_desc}, {self.email}"
+        return (f"self.first_name, self.last_name, self.role, self.email")
 
 class Tutor(models.Model):
     # referecing the user, the tutor is a set of users
@@ -34,7 +38,7 @@ class Tutor(models.Model):
 
     # readable
     def __str__(self):
-        return f"{self.tutorId}"
+        return str((self.tutor))
 
 class Admin(models.Model): # simple db query if admin this or that
     # referecing the user, the admin is a set of users
@@ -42,7 +46,7 @@ class Admin(models.Model): # simple db query if admin this or that
 
     # readable
     def __str__(self):
-        return f"{self.adminId}"
+        return str((self.admin))
 
 class Program(models.Model):
     program_id  = models.AutoField(primary_key=True)
@@ -57,7 +61,7 @@ class Event(models.Model):
 
     # readable
     def __str__(self):
-        return f"{self.event_id}, {self.date}, {self.location}"
+        return (f"self.date, self.location")
     
 class Assignees(models.Model):
     # referencing the event, this is so that the event will have a query set of assigned people to that event
@@ -68,7 +72,7 @@ class Assignees(models.Model):
 
     # readable
     def __str__(self):
-        return f"{self.eventId}, {self.assigneeId}"
+        return (f"self.event, self.assignee")
     
 class Message(models.Model):
     message_id = models.AutoField(primary_key = True) #Auto Incrementing Message ID
@@ -80,5 +84,20 @@ class Message(models.Model):
     """ include """
 
     def __str__(self):
-        return f"{self.message_id}, {self.content}, {self.timestamp}, {self.sender}, {self.receiver}"
+        return (f"self.message_id, self.content, self.timestamp, self.sender, self.receiver")
+
+
+class Note(models.Model):
+    noteId = models.AutoField(primary_key = True) #Auto Incrementing Note ID
+    contentType = models.CharField(max_length = 50)
+    content = models.TextField() #Text or a file path
+    authorId = models.ForeignKey(User, on_delete=models.CASCADE) #Links to User Model
+    authorName = models.CharField(max_length = 100) #Write in Author name
+    event = models.CharField(max_length = 100) #Write in Event
+    courseName = models.CharField(max_length = 100) #Write in Course Name
+    date = models.DateTimeField(default = now) #TimeStamp of Note Creation
+    
+    def __str__(self):
+        return (f"self.noteId, self.contentType, self.content, self.authorId, self.authorId, self.authorName, self.event, self.courseName, self.date")
+    
 

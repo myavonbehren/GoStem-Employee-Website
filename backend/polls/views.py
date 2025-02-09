@@ -1,19 +1,21 @@
-from django.shortcuts import render
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .models import User, Event
+from .serializers import UserSerializer, EventSerializer
 
-# Create your views here.
-from django.http import HttpResponse
-from .models import Event
+@api_view(['POST'])
+def create_user(request):
+    serializer = UserSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-def event_get_detail(request):
-    event = Event.objects.all()
-    #return render(request, )
-
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
-
-def chat(request):
-    return render(request, "polls/chat.html") # Create a template for the chat page
-
-def chatPage(request, *args, **kwargs):
-    context = {}
-    return render(request, "polls/chatPage.html", context)
+@api_view(['POST'])
+def create_event(request):
+    serializer = EventSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

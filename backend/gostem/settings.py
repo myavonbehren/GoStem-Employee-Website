@@ -39,10 +39,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     #'daphne',
     "django.contrib.staticfiles",
-    'polls.apps.PollsConfig',
     'rest_framework',
+
+    'polls'
+
     #'channels',
     'notes',
+
 ]
 
 MIDDLEWARE = [
