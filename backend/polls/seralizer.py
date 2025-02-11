@@ -11,9 +11,4 @@
 # ctrl+shift+p, python: select interpeter, select global
 
 from rest_framework import serializers
-from .models import Note
 
-class NoteSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Note
-        fields = ['id', 'title', 'description', 'created_at', 'updated_at']
