@@ -23,9 +23,9 @@ const TimeCard = () => {
     };
 
     return (
-        <div className="body">
-            <div className="container">
-                <div className="header">
+        <div className="hours-body">
+            <div className="hours-container">
+                <div className="hours-header">
                     <h2>Time Card: Tutor Hours</h2>
                 </div>
 

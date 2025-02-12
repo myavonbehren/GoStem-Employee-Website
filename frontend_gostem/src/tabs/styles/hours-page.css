@@ -1,4 +1,4 @@
-.body {
+.hours-body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   background-color: #133d3b;
@@ -8,7 +8,7 @@
   min-height: 100vh;
 }
 
-.container {
+.hours-container {
   padding: 12px;
   width: 75%;
   margin: 0 auto;
@@ -17,7 +17,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.header {
+.hours-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
