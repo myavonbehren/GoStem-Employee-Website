@@ -1,19 +1,5 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-width: 320px; 
-  overflow-x: hidden;
-}
-
-body { 
+body{
   background-color: #133d3b;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
-  font-family: 'Montserrat', sans-serif;
-  min-height: 100vh;
 }
 
 .schedule-container {

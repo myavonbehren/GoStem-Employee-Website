@@ -39,9 +39,6 @@ const SchedulePage = () => {
   
   return (
     <div className="schedule-container">
-      <header className="schedule-header">
-        <h2 className="schedule-greeting">Hi, UserName </h2>
-      </header>
       {/* Setting up the calendar buttons */}
       <div className="calendar-controls">
         {/* Today button - goes to today's date */}
