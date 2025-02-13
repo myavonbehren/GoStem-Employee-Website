@@ -1,10 +1,10 @@
+// Created by Mya Von Behren, Feb 12th, 2025
+
 import React from "react";
 import "./styles/notes-page.css"
-import React, { useState } from 'react';
 
 
 const NotePage = () => {
-  const [notes, setNotes] = useState([]);
 
   // functions to call api's
   //fetch notes
@@ -16,29 +16,41 @@ const NotePage = () => {
   //what should edit do?
 
   return (
-    <div className="notes-container">
-      <div className="notes-contols">
-        <div className="title">
-          <input
-          type="text"
-          placeholder="Title"
-          />
+    <div className="notes-body">
+      <div className="notes-wrapper">
+        <div className="notes-header">
+          <h1>Notes</h1>
         </div>
+        <div className="notes-container">
+          <div>
+            <form className="create-note">
+              <input
+              name="title"
+              type="text"
+              placeholder="Title"
+              />
+              <textarea
+                name="description"
+                type="text"
+                placeholder="Description"
+                rows={3}
+              />
+            </form>
+          </div>   
+        </div>
+      </div>
+
+        {/*}
         <div className="author-name"><h3>Author Name</h3></div>
         <div className="date"><h4>Date</h4></div>
-        <div className="notes-description">
-            <input 
-              type="text"
-              placeholder="Enter your description"
-            />
-        </div>
+        
         <div className="drop-box"><button>Upload Files</button></div>
         {/*
         file type validation - what type of files can be uploaded?
         file size check
         file progress indicator?
         file selection        
-        */}
+        
         
         <div className="notes-controls-right">
           <select className="Program">
@@ -48,7 +60,7 @@ const NotePage = () => {
           <button className="edit-btn">Edit</button>
           <button className="trash-btn">Trash</button>
         </div>
-      </div>
+        */}
     </div>
   );
 };
