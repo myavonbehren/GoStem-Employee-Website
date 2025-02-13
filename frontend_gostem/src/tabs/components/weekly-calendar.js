@@ -1,5 +1,4 @@
 import React from 'react';
-import CalendarDays from './monthly-calendar-days';
 import "../styles/weekly-calendar.css"
 
 

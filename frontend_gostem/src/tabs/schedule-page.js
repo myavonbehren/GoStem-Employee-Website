@@ -1,12 +1,14 @@
 import React from "react";
 import "./styles/schedule-page.css"
+import Sidebar from './components/sidebar';
+
 import { useState } from 'react';
 
 import MonthlyCalendar from "./components/monthly-calendar";
 import WeeklyCalendar from "./components/weekly-calendar";
 
-const SchedulePage = () => {
-  const [currentView, setCurrentView] = useState('month')
+const ScheduleContent = () => {
+  const [currentView, setCurrentView] = useState('week')
 
   const [currentDay, setCurrentDay] = useState(new Date());
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 
@@ -38,7 +40,7 @@ const SchedulePage = () => {
   }
   
   return (
-    <div className="schedule-container">
+    <div className="schedule-content-container">
       {/* Setting up the calendar buttons */}
       <div className="calendar-controls">
         {/* Today button - goes to today's date */}
@@ -77,20 +79,33 @@ const SchedulePage = () => {
       </div>
 
       <div className="calendar-view">
-        {currentView === 'month' ? (
-          <MonthlyCalendar 
+        {currentView === 'week' ? 
+        (
+          <WeeklyCalendar 
             currentDay={currentDay}
             changeCurrentDay={changeCurrentDay}
           /> 
-        ) : (
-          <WeeklyCalendar 
+        ):
+        (
+          <MonthlyCalendar 
             currentDay={currentDay}
             changeCurrentDay={changeCurrentDay}
           /> 
         )
         }
         
+
+
       </div>
+    </div>
+  );
+};
+
+const SchedulePage= () => {
+  return (
+    <div className="schedule-page-container">
+      <Sidebar />
+      <ScheduleContent />
     </div>
   );
 };
