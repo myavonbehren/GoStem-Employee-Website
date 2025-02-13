@@ -31,4 +31,6 @@ urlpatterns = [
     path('polls/', include('polls.urls')),
     path('notes/', include('notes.urls')),
 
+    path("accounts/", include("allauth.urls")),
+    path("", include("user.urls")),
 ]
