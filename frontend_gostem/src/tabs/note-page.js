@@ -2,9 +2,10 @@
 
 import React from "react";
 import "./styles/notes-page.css"
+import Sidebar from './components/sidebar';
 
 
-const NotePage = () => {
+const NotesContent = () => {
 
   // functions to call api's
   //fetch notes
@@ -21,7 +22,7 @@ const NotePage = () => {
         <div className="notes-header">
           <h1>Notes</h1>
         </div>
-        <div className="notes-container">
+        <div className="notes-editor-container">
           <div>
             <form className="create-note">
               <input
@@ -61,8 +62,20 @@ const NotePage = () => {
           <button className="trash-btn">Trash</button>
         </div>
         */}
+
     </div>
   );
 };
 
-export default NotePage;
+const NotesPage = () => {
+  return (
+    <div className="notes-page-container">
+      <Sidebar />
+      <NotesContent />
+    </div>
+  );
+}
+
+
+
+export default NotesPage;

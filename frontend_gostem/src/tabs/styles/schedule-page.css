@@ -1,22 +1,22 @@
-body{
-  background-color: #133d3b;
+.schedule-page-container {
+  display: flex;
+  height: 100vh; 
+  width: 100%;
+  overflow: hidden; 
 }
 
-.schedule-container {
+.schedule-content-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
-  min-width: 0;
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 0 15px;
+  height: 100%; 
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .calendar-controls {
   background-color: #afddd5;
-  height: 8dvh;
+  height: 60px;
   width: 100%;
   min-width: 0;
   word-wrap: break-word;
@@ -25,9 +25,7 @@ body{
   justify-content: space-between;
   padding: 0 15px;
   box-sizing: border-box;
-  border-radius: 8px 8px 0 0;
   flex-wrap: wrap;
-  
 }
 
 .calendar-controls--date {
@@ -80,16 +78,17 @@ body{
 
 .calendar-view {
   width: 100%;
-  height: auto;
-  align-items: center;
+  flex: 1;
   background-color: white;
-  border-radius: 0 0 8px 8px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
 
 .calendar-day {
-  width: auto;
-  min-height: 80px;
+  flex: 1;
+  min-height: 0;
 }
 
 @media screen and (max-width: 540px) {
