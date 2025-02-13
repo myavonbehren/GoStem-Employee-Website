@@ -21,22 +21,14 @@ from django.urls import path, include
 
 urlpatterns = [
 
-<<<<<<< Updated upstream
     path("polls/", include("polls.urls")),
-=======
->>>>>>> Stashed changes
     path("admin/", admin.site.urls),
     path('api/', include('polls.urls')),
     path('admin/', admin.site.urls),
     path('', include('polls.urls')),
     path('api/', include('notes.urls')),
 
-<<<<<<< Updated upstream
     path('polls/', include('polls.urls')),
     path('notes/', include('notes.urls')),
 
-=======
-    path("accounts/", include("allauth.urls")),
-    path("", include("users.urls")),
->>>>>>> Stashed changes
 ]
