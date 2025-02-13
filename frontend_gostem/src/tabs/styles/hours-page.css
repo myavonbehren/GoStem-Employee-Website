@@ -7,14 +7,18 @@
   align-items: center;
   min-height: 100vh;
 }
-
+.hours-page-container {
+  display: flex;
+  height: 100vh;
+}
 .hours-container {
   padding: 12px;
   width: 75%;
   margin: 0 auto;
   background-color: #afdcd5;
-  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  overflow-y: auto;
 }
 
 .hours-header {
