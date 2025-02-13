@@ -13,6 +13,7 @@
   padding: 0;
   font-family: 'Montserrat', sans-serif;
 }
+
 .landing-container {
   display: flex;
   flex-direction: column;
@@ -22,7 +23,7 @@
 }
 
 .landing-header {
-  color: white;
+  color: #133d3b ;
   padding: 20px;
   width: 100%;
   text-align: center;
@@ -40,7 +41,7 @@
 }
 
 .image-button {
-  background-color: #216661 ;
+  background-color: #133d3b ;
   border-radius: 25px;
   font-weight: bold;
   font-size: 25px;
@@ -83,7 +84,7 @@
 }
 
 .bottom-button {
-  background-color: #216661;
+  background-color: #133d3b;
   color: white;
   border: none;
   padding: 10px 20px;

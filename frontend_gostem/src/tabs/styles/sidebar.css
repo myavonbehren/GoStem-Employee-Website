@@ -1,7 +1,7 @@
 .sidebar-container {
     width: 100px;
     min-height: 100vh;
-    background-color: #2c8c86; /* Dark teal */
+    background-color: #133d3b; /* Dark teal */
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -46,7 +46,7 @@
     height: 32px;
   }
   .sidebar-button-text {
-    color: black; 
+    color: white; 
     font-style: normal;
     text-decoration: none;
     margin-top: 0.25rem;
