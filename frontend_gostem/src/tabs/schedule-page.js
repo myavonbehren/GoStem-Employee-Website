@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles/schedule-page.css"
+//import sidebar from '.components/sidebar';
 import { useState } from 'react';
 
 import MonthlyCalendar from "./components/monthly-calendar";
