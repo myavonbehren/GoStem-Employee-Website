@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './styles/hours-page.css';
 import Sidebar from './components/sidebar';
+import BurgerMenu from './components/burger';  
 
 const TimeCard = () => {
     const [campus, setCampus] = useState("");
@@ -134,6 +135,9 @@ const TimeCard = () => {
 const HoursPage = () => {
     return (
         <div className="hours-page-container">
+            <div className="burger-menu-container">
+                <BurgerMenu />
+            </div>
             <Sidebar />
             <TimeCard />
         </div>

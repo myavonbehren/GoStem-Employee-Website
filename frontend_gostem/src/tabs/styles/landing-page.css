@@ -48,7 +48,7 @@
   /* font-family: monospace; */
   color:  #f3eddf;
   padding: 20px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   text-align: center;
   cursor: pointer;
   border: none;
@@ -112,6 +112,24 @@
 
 @media (max-width: 767px) {
 
+  /* hover rules */
+
+  .image-button:hover img {
+    transform: none;
+  }
+
+  .bottom-button:hover {
+    background-color: #133d3b;
+    box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.3);
+    transform: none;
+  }
+  
+  .image-button:hover {
+    background-color: #133d3b;
+    box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.3);
+    transform: none;
+  }
+
   .button-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -133,6 +151,7 @@
   .image-button img {
     width: 60px;
     height: 60px;
+    margin-bottom: 0px;
   }
 
   .button-text {
@@ -149,7 +168,7 @@
     flex-direction: row;
     justify-content: center;
     margin-top: 10px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     gap: 20px;
   }
 

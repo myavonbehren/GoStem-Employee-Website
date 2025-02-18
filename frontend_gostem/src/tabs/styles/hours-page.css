@@ -208,6 +208,15 @@
       font-weight: 600;
       margin-bottom: 12px;
       text-align: center;
+      margin-top: 0px;
+    }
+
+    .hours-header h2 {
+      font-size: 20px;
+    }
+
+    .hours-header {
+      height: 30px;
     }
 
     /* button sec */
@@ -233,10 +242,36 @@
       background-color: #e5e7eb;
       color: #333;
     }
+
+    .button.cancel:hover {
+      transform: none;
+      box-shadow: none;
+    }
     
     .button.add {
       background-color: #216661;
       color: #fff;
+    }
+
+    .button.add:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* entry card sec */
+
+    .entry-card {
+      transition: none;
+      box-shadow: none;
+    }
+
+    .entry-card:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .recent-entries h3 {
+      margin-top: 0px;
     }
   
 }
