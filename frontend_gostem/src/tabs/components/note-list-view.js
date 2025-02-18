@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import trash from './icons/trash.png'
+import edit from './icons/edit.png'
 import "../styles/note-list-view.css"
 
 const NoteListView = ({ onAddClick }) => {
@@ -42,11 +44,16 @@ const NoteListView = ({ onAddClick }) => {
               <p>Date Created:</p>
               <p>Date Modified:</p>
               <p>Author Name</p>
+              <p>Program Name</p>
               <p>Note Description</p>
               <p>File(s)</p> 
-              <div className="notes-footer">
-                <button>Modify</button>
-                <button>Delete</button>
+              <div className="notes-item-footer">
+                <button>
+                    <img src={edit} alt="Modify" className="edit-icon"/>
+                </button>
+                <button>
+                    <img src={trash} alt="Delete" className="trash-icon"/>
+                </button>
               </div>
           </div>
           </div>
