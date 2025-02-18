@@ -3,6 +3,7 @@
 import React from "react";
 import "./styles/notes-page.css"
 import Sidebar from './components/sidebar';
+import FileUploadZone from "./components/drag-drop-files";
 
 
 const NotesContent = () => {
@@ -11,6 +12,13 @@ const NotesContent = () => {
   //fetch notes
   //create a note
   //load notes
+
+  // collect files
+  // prepare for file upload
+  // send files to backedn
+  // display upload progress
+  // show stored file list
+
 
   //do you store the date?
   //share button?
@@ -37,7 +45,10 @@ const NotesContent = () => {
                 rows={3}
               />
             </form>
-          </div>   
+            <div>
+              <FileUploadZone />
+            </div>
+          </div>
         </div>
       </div>
 
