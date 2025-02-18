@@ -1,12 +1,63 @@
 // Created by Mya Von Behren, Feb 12th, 2025
-
-import React from "react";
+import React, { useState } from 'react';
 import "./styles/notes-page.css"
 import Sidebar from './components/sidebar';
 import FileUploadZone from "./components/drag-drop-files";
 
 
-const NotesContent = () => {
+const NoteList = ({ onAddClick }) => {
+  const [noteType, setNoteType] = useState('all-notes');
+  const [program, setProgram] = useState('all-programs');
+
+  return (
+    <div className="notes-body">
+    <div className="notes-wrapper">
+      <div className="notes-header">
+        <h1>Notes</h1>
+      </div>
+        <div className="notes-header-btn-filter">
+          <div className="notes-filters">
+          <select 
+                value={program} 
+                onChange={(e) => setProgram(e.target.value)}
+                className="notes-select"
+              >
+                <option value="all-programs">All Programs</option>
+                <option value="program-1">Program 1</option>
+                <option value="program-2">Program 2</option>
+            </select>
+
+            <select 
+                value={noteType} 
+                onChange={(e) => setNoteType(e.target.value)}
+                className="notes-select"
+              >
+                <option value="all-notes">All Notes</option>
+                <option value="shared-notes">Shared Notes</option>
+                <option value="personal-notes">Personal Notes</option>
+              </select>
+          </div>
+          <button className="add-btn" onClick={onAddClick}>Add</button>
+        </div>
+        <div className="notes-list-container">
+        <div className="notes-grid">
+          <div className="note-item">
+            <h3 className="note-final-title">Note Title</h3>
+            <p>Note Description</p>
+            <p>File(s)</p>
+            <div className="notes-footer">
+              <button>Modify</button>
+              <button>Delete</button>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  )
+}
+
+const AddNote = ({ onCancel }) => {
 
   // functions to call api's
   //fetch notes
@@ -48,6 +99,10 @@ const NotesContent = () => {
             <div>
               <FileUploadZone />
             </div>
+            <div className="modify-notes-btns">
+            <button className="cancel-note-btn" onClick={onCancel}>Cancel</button>
+            <button className="add-note-btn">Add Note</button>
+            </div>
           </div>
         </div>
       </div>
@@ -79,10 +134,20 @@ const NotesContent = () => {
 };
 
 const NotesPage = () => {
+  const [isAddingNote, setIsAddingNote] = useState(false);
+
+  const handleAddClick = () => {
+    setIsAddingNote(true);
+  };
+
+  const handleCancel = () => {
+    setIsAddingNote(false);
+  };
+
   return (
     <div className="notes-page-container">
       <Sidebar />
-      <NotesContent />
+      {isAddingNote ? (<AddNote onCancel={handleCancel} />) : (<NoteList onAddClick={handleAddClick} />)}
     </div>
   );
 }
