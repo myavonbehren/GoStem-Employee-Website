@@ -12,6 +12,13 @@ def logout_view(request):
     logout(request)
     return redirect("")
 
+# @login_required
+# def dashboard(request):
+#     return render(request, "dashboard.html")
+
 @login_required
 def dashboard(request):
-    return render(request, "dashboard.html")
+    return redirect("/landing-page")  # Redirect to the root URL which will be handled by React Router
+
+def landing_page(request):
+    return render(request, 'index.html')

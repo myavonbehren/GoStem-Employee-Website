@@ -31,11 +31,11 @@ const Home = () => {
     <div className="App">
       <header className="Landing-page">
         <img src={goStemLogo} className="App-logo" alt="logo" />
-        <Link to="/landing-page">
+        < a href="{% provider_login_url 'google' %}">
           <button className="Login-button">
             Login
           </button>
-        </Link>
+        </a>
       </header>
     </div>
   );
