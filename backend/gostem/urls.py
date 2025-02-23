@@ -24,7 +24,6 @@ urlpatterns = [
     path("chats/", include("chats.urls")),
     path("admin/", admin.site.urls),
     path('api/', include('chats.urls')),
-    path('admin/', admin.site.urls),
     path('', include('chats.urls')),
     path('api/', include('notes.urls')),
 
