@@ -3,9 +3,24 @@ import trash from './icons/trash.png'
 import edit from './icons/edit.png'
 import "../styles/note-list-view.css"
 
-const NoteListView = ({ onAddClick }) => {
+const NoteListView = ({ notes, setNotes, onAddClick, onDeleteNote, onEditNote }) => {
     const [noteType, setNoteType] = useState('all-notes');
     const [program, setProgram] = useState('all-programs');
+
+    // filter notes
+    const filteredNotes = notes.filter(note => {
+      if (program !== 'all-programs' && !note.programName.toLowerCase().includes(program.replace('-', ' '))) {
+        return false;
+      }
+      return true;
+    });
+
+    const handleDelete = (noteId) => {
+      if (window.confirm("Are you sure you want to delete this note?")) {
+        onDeleteNote(noteId)
+      }
+    };
+    
   
     return (
       <div className="notes-body">
@@ -39,23 +54,27 @@ const NoteListView = ({ onAddClick }) => {
           </div>
           <div className="notes-list-container">
           <div className="notes-grid">
-            <div className="note-item">
-              <h3 className="note-final-title">Note Title</h3>
-              <p>Date Created:</p>
-              <p>Date Modified:</p>
-              <p>Author Name</p>
-              <p>Program Name</p>
-              <p>Note Description</p>
-              <p>File(s)</p> 
+          {filteredNotes.map((note) => (
+              <div className="note-item" key={note.id}>
+                <div className='program'><p>{note.programName}</p></div>
+                <h3 className="note-final-title">{note.title}</h3>
+                <p className='author-name'>{note.authorName}</p>
+                <p className='description'>{note.description}</p>
+                <p className='file'>File(s): {note.file}</p> 
               <div className="notes-item-footer">
-                <button>
-                    <img src={edit} alt="Modify" className="edit-icon"/>
-                </button>
-                <button>
-                    <img src={trash} alt="Delete" className="trash-icon"/>
-                </button>
+                <div className='date-info'><p>{note.dateCreated}</p></div>
+                <div className='button-group'> 
+                  <button onClick={()=> onEditNote(note)}>
+                      <img src={edit} alt="Modify" className="edit-icon"/>
+                  </button>
+                  <button onClick={()=> handleDelete(note.id)}>
+                      <img src={trash} alt="Delete" className="trash-icon"/>
+                  </button>
+                </div>
               </div>
-          </div>
+              </div>
+            ))}
+        
           </div>
         </div>
       </div>
