@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from './modal';
 import FileUploadZone from './drag-drop-files';
 import "../styles/modal-add-note.css"
 
-const ModalAddNote = ({ isOpen, onClose, onAddNote }) => {
+const ModalEditNote = ({ isOpen, onClose, onUpdateNote, note }) => {
   const [noteType, setNoteType] = useState('shared-notes');
   const [program, setProgram] = useState('program-1');
   const [title, setTitle] = useState("");
@@ -12,19 +12,29 @@ const ModalAddNote = ({ isOpen, onClose, onAddNote }) => {
   const [titleError, setTitleError] = useState("");
   const [contentError, setContentError] = useState("");
 
-  // Resets modal after close
+  // Get note's info
+  useEffect(() => {
+    if (note) {
+      setTitle(note.title);
+      setContent(note.description);
+      setFile(note.file);
+      setProgram(note.programName.toLowerCase().includes('program 1') ? 'program-1' : 'program-2');
+      setNoteType(note.isShared ? 'shared-notes' : 'personal-notes');
+    }
+  }, [note]);
+
   const handleModalClose = () => {
     setContentError("");
     setTitleError("");
     setTitle("");
     setContent("");
     setFile("No files uploaded");
-    setProgram('program-1');
-    setNoteType('shared-notes');
+    setProgram(note.programName.toLowerCase().includes('program 1') ? 'program-1' : 'program-2');
+    setNoteType(note.isShared ? 'shared-notes' : 'personal-notes');
     onClose();
   };
 
-  // Error message for when a title is not inputted or exceeds 50 characters
+  // Error Message for when a title is not inputted
   const validateTitle = () => {
     setTitleError("");
 
@@ -41,7 +51,6 @@ const ModalAddNote = ({ isOpen, onClose, onAddNote }) => {
     return true;
   };
 
-  // Error message for when description exceeds 500 characters
   const validateContent = () => {
     setContentError("");
     if(content.length > 500){
@@ -51,36 +60,31 @@ const ModalAddNote = ({ isOpen, onClose, onAddNote }) => {
     return true;
   };
 
-  // Creates a new note
-  const handleAddClick = (event) => {
+  // Error Message for 
+
+  // Updates note
+  const handleUpdateClick = (event) => {
     event.preventDefault();
 
     if(!validateTitle() ||!validateContent()) {return;}
-    
-    const programName = program === 'program-1' ? 'Program 1' : 'Program 2';
+
+    const programName = program === 'program-1' ? 'Program 1' : 'Program 2'
     const isShared = noteType === 'shared-notes';
-    
-    const newNote = {
-      title: title,
-      noteTypeName: noteType,
+
+    const updatedNote = {
+      ...note,
+      title: title.trim(),
       programName: programName,
       description: content,
       file: file,
       isShared: isShared
     };
-    
-    onAddNote(newNote);
-    
-    // Resets Modal after add
-    
-    setTitle("");
-    setContent("");
-    setFile("No files uploaded");
-    setProgram('program-1');
-    setNoteType('shared-notes');
+
+    onUpdateNote(updatedNote);
+
   };
 
-  // Handle file uploads - FIX
+  // Handle files - FIX --- does not work 
   const handleFileUpload = (uploadedFiles) => {
     if (uploadedFiles && uploadedFiles.length > 0) {
       setFile(uploadedFiles.map(file => file.name || "Unnamed file").join(", "));
@@ -93,11 +97,11 @@ const ModalAddNote = ({ isOpen, onClose, onAddNote }) => {
     <Modal isOpen={isOpen} onClose={handleModalClose}>
       <div className="notes-wrapper">
           <div className="notes-header">
-            <h1 className="notes-header-text">Add Note</h1>
+            <h1 className="notes-header-text">Edit Note</h1>
           </div>
           <div className="notes-editor-container">
             <div>
-              <form className="create-note" onSubmit={(event)=> handleAddClick(event)}> 
+              <form className="create-note" onSubmit={(event)=> handleUpdateClick(event)}> 
                 <input
                 value={title}
                 onChange={(event)=> {
@@ -125,7 +129,6 @@ const ModalAddNote = ({ isOpen, onClose, onAddNote }) => {
                   rows={5}
                   className={contentError ? "error-input" : ""}
                 />
-
                 {contentError && <p className='error-message'>{contentError}</p>}
               </form>
               <div className="notes-filters-modal">
@@ -152,7 +155,7 @@ const ModalAddNote = ({ isOpen, onClose, onAddNote }) => {
               </div>
               <div className="modify-notes-btns">
               <button className="cancel-note-btn" onClick={handleModalClose}>Cancel</button>
-              <button className="add-note-btn" onClick={handleAddClick}>Add Note</button>
+              <button className="add-note-btn" onClick={handleUpdateClick}>Update Note</button>
               </div>
             </div>
           </div>
@@ -161,4 +164,4 @@ const ModalAddNote = ({ isOpen, onClose, onAddNote }) => {
   );
 };
 
-export default ModalAddNote;
+export default ModalEditNote;
