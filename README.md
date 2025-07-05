@@ -23,3 +23,21 @@ This internal application is designed to streamline scheduling, note-taking, and
 * A chat system with a built-in messaging feature that enables seamless communication between users, fostering collaboration and quick information exchange.
 * A profile page where each user can view their profile picture, email, and their role Administrators have the ability to grant and revoke admin access.
 * A Role-Based Access Control system where access permissions are strictly managed to ensure security and efficiency. Administrators manage scheduling and user permissions, while regular users can manage their notes, participate in chat, and view the schedule but cannot modify them. 
+
+# Screenshots
+## Schedule
+<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image1.png" width="600">
+<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image11.png" width="600">
+<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image30.png" width="600">
+<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image38.png" width="600">
+<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image39.png" width="600">
+<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image50.png" width="600">
+
+
+## Notes 
+<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image15.png" width="600">
+<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image33.png" width="600">
+<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image45.png" width="600">
+<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image55.png" width="600">
+<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image20.png" width="600">
+
