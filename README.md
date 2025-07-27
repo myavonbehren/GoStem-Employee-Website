@@ -44,5 +44,5 @@ This internal application is designed to streamline scheduling, note-taking, and
 <img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image33.png" width="600">
 <img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image45.png" width="600">
 <img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image55.png" width="600">
-<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image20.png" width="600">
+<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image20.png" width="300">
 
