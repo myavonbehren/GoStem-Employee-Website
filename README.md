@@ -29,6 +29,11 @@ This internal application is designed to streamline scheduling, note-taking, and
 * React
 * FullCalendar
 
+## UX Personas
+<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/GoStemPersona1.png" width="600">
+<img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/GoStemPersona2.png" width="600">
+
+
 ## Screenshots
 ### Schedule
 <img src="https://github.com/myavonbehren/GoStem-Employee-Website/blob/main/Screenshots/image1.png" width="600">
